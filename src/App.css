@@ -1,0 +1,603 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root{
+  --bg-color: #222327;
+  --text-color: #fff;
+  --main-color: #29fd53;
+}
+
+/* Global styles */
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  transition: all .50s ease;
+  padding: 28px 12%; 
+    
+}
+.list{
+  display: flex;
+}
+
+.list a{
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: opx 30px;
+  transition: all .50s ease;
+}
+
+.list a:hover{
+  color: var(--main-color);
+}
+
+.list a.active{
+  color: var(--main-color);
+}
+
+.main{
+  display: flex;
+  align-items: center;
+}
+
+.main a{
+  margin-right: 25px;
+  margin-left: 10px;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all .5-s ease;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+
+}
+
+.user i{
+  color: var(--main-color);
+  font-size: 28px;
+  margin-right: 7px;
+}
+
+.main a:hover{
+  color: var(--main-color);
+}
+
+.menu-icon{
+  font-size: 35px;
+  color: var(--text-color);
+  cursor: pointer;
+  z-index: 10001;
+  display: none;
+}
+
+@media (max-width: 1280px){
+  header{
+    padding: 14px 2%;
+    transition: .2s;
+  }
+
+  .list a{
+    padding: 5px 0;
+    margin: 0px 20px;
+  }
+}
+
+@media (max-width: 1090px){
+  .menu-icon{
+    display: block;
+  }
+  .list{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 230px;
+    height: 35vh;
+    max-height: 50vh;
+    background: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition: all .50s ease;
+    
+  }
+  .list a{
+    display: block;
+    margin: 0px 0;
+    padding: 0px 25px;
+    transition: all .50s ease;
+  }
+
+  .list a:hover{
+    color: var(--text-color);
+    transform: translateY(5px);
+  }
+
+  .list a.active{
+    color: var(--text-color);
+  }
+
+  .list.open{
+    top: 45%;
+    right: 0%;
+  }
+
+}
+
+.logo{
+  margin-top: 10%;
+}
+
+.para{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+  float: right;
+}
+
+
+p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.upload-button {
+  display: inline-block;
+  background-color: #008cba;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+  background-color: #006a8c;
+}
+
+/* Upload history styles */
+.upload-history {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+}
+
+.upload-history h3 {
+  padding: 1rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+.upload-history p {
+  padding: 0.9rem;
+  color: #666;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li span:first-child {
+  flex: 1;
+  margin-right: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+li span:last-child {
+  flex-shrink: 0;
+  color: #888;
+}
+
+.upload-history-button {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #008cba;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: 10px;
+}
+
+.upload-history-button:hover {
+  color: #006a8c;
+}
+
+.delete-history-button {
+  background: rgb(201, 57, 57);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #f2f2f2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.delete-history-button:hover {
+  background: rgb(221, 57, 57);
+}
+
+/*Secure button styles */
+#secure {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 15%;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+input[type="file"] {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 70%;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.secure-button {
+  background: #008CBA;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.secure-button:hover{
+  background: #4afa23;
+}
+
+/* Filestack picker styles */
+.fs-picker-modal {
+  z-index: 9999999;
+}
+
+.fs-uploader {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.fs-btn {
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fs-btn:hover {
+  background-color: #006a8c;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: larger;
+}
+
+/* Signin and SignUp styles*/
+.main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 8%;
+  background-color: antiquewhite;
+}
+
+.main-div1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 4%;
+  background-color: antiquewhite;
+}
+
+h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 18px;
+  color: #555;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: beige;
+}
+
+button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #005E7D;
+}
+
+a {
+  display: block;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #008CBA;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #005E7D;
+}
+
+
+/*Upload page styles*/
+
+
+
+#upload{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10%;
+}
+
+.upload-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 16px 32px;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.upload-button:hover {
+  background-color: #3e8e41;
+}
+
+.upload-history {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-left: 28%;
+  color: black;
+  
+}
+
+.upload-history h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: rgb(215, 129, 49);
+}
+
+.upload-history p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: black;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+
+li span:first-child {
+  font-weight: bold;
+  margin-right: 10px;
+  flex: 1;
+}
+
+.upload-history-button,
+.delete-history-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 2%;
+  margin-left: 1%;
+}
+
+.upload-history-button:hover,
+.delete-history-button:hover {
+  background-color: #3e8e41;
+}
+
+.upload-history-button {
+  margin-right: 10px;
+}
+
+.delete-history-button {
+  background-color: #f44336;
+}
+
+.delete-history-button:hover {
+  background-color: #c82333;
+}
+
+.picker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.picker-modal {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  max-width: 80%;
+}
+
+.picker-modal h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.picker-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker-modal label {
+  margin-bottom: 10px;
+}
+
+.picker-modal input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.picker-modal button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+}
